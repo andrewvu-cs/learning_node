@@ -1,3 +1,5 @@
+const path = require("path");
+
 // Thirdy party pkgs
 const express = require("express");
 const bodyParser = require('body-parser');
@@ -14,7 +16,7 @@ app.use(shopRoutes);
 
 // catach all routes
 app.use((req, res, next) => {
-    res.status(404).send('<h1> Page not found</h1>')
+    res.sendFile(path.join(__dirname, 'views', 'error.html'));
 });
 
 // createServer return a server
