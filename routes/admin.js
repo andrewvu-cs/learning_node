@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // app.use allows us to do a middleware function will be executed after every request
+// admin/add-product => GET
 router.get("/add-product", (req, res, next) => {
   console.log("In another middleware!");
   res.send(
@@ -10,9 +11,7 @@ router.get("/add-product", (req, res, next) => {
   ); // send sets the header for us 'text/html'
 });
 
-//post for post requeust
-//get for get requests
-//use for both types of requests
+// admin/add-product => POST
 router.post("/add-product", (req, res, next) => {
   console.log(req.body);
   res.redirect("/");
