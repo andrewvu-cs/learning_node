@@ -14,7 +14,7 @@ const products = [];
 router.get("/add-product", (req, res, next) => {
   // console.log("In another middleware!");
   // res.sendFile(path.join(rootDir, "views", "add-product.html")); // send sets the header for us 'text/html'
-  res.render("add-product", {docTitle: "Add Product"})
+  res.render("add-product", {docTitle: "Add Product", path: '/admin/add-product'})
 });
 
 // admin/add-product => POST
