@@ -11,6 +11,8 @@ const app = express();
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/admin',adminRoutes);
@@ -25,6 +27,6 @@ app.use((req, res, next) => {
 // after we end our response we do not want to send another response
 
 // Listens for client request
-app.listen("3003");
+app.listen("3002");
 
 //headers are metadata
