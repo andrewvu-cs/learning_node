@@ -5,11 +5,20 @@ const path = require("path");
 // Thirdy party pkgs
 const express = require("express");
 const bodyParser = require('body-parser');
+// Handlebars templating engine
+const expressHbs = require('express-handlebars');
+
 
 const app = express();
 
-app.set('view engine', 'pug');
+// HANDLEBARS TEMPLATING ENGINE
+app.engine('handlebars', expressHbs());
+app.set('view engine', 'handlebars');
 app.set('views', 'views');
+
+// PUG TEMPLATING ENGINE
+// app.set('view engine', 'pug');
+// app.set('views', 'views');
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -24,7 +33,11 @@ app.use(shopRoutes);
 // catach all routes
 app.use((req, res, next) => {
     // res.sendFile(path.join(__dirname, 'views', '404.html'));
+    // PUG
     res.render("404", {docTitle: "PAGE NOT FOUND"})
+
+    // HANDLEBARS
+    // res.status(404).render('404', { pageTitle: 'Page Not Found' })
 });
 
 // createServer return a server
