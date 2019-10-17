@@ -1,3 +1,5 @@
+// core module
+// path ensures that were able to get into this folder in respective OS's
 const path = require("path");
 
 // Thirdy party pkgs
@@ -16,7 +18,7 @@ app.use(shopRoutes);
 
 // catach all routes
 app.use((req, res, next) => {
-    res.sendFile(path.join(__dirname, 'views', 'error.html'));
+    res.sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
 // createServer return a server
