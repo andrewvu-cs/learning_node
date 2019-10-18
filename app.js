@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 // Handlebars templating engine
 // const expressHbs = require('express-handlebars');
 
-
+const errorsController = require('./controllers/errors');
 const app = express();
 
 // HANDLEBARS TEMPLATING ENGINE
@@ -35,14 +35,7 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 // catach all routes
-app.use((req, res, next) => {
-    // res.sendFile(path.join(__dirname, 'views', '404.html'));
-    // PUG
-    res.render("404", {docTitle: "PAGE NOT FOUND"})
-
-    // HANDLEBARS
-    // res.status(404).render('404', { pageTitle: 'Page Not Found' })
-});
+app.use(errorsController.get404);
 
 // createServer return a server
 // after we end our response we do not want to send another response
