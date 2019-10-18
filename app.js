@@ -6,19 +6,22 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require('body-parser');
 // Handlebars templating engine
-const expressHbs = require('express-handlebars');
+// const expressHbs = require('express-handlebars');
 
 
 const app = express();
 
 // HANDLEBARS TEMPLATING ENGINE
-app.engine('handlebars', expressHbs());
-app.set('view engine', 'handlebars');
-app.set('views', 'views');
+// app.engine('handlebars', expressHbs());
+// app.set('view engine', 'handlebars');
+// app.set('views', 'views');
 
 // PUG TEMPLATING ENGINE
 // app.set('view engine', 'pug');
 // app.set('views', 'views');
+
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
